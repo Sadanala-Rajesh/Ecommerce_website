@@ -1,0 +1,53 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		div.frame{
+			width: 200px;
+			height: 160px;
+			float: left;
+			margin:5px;
+			padding-bottom: 5px;
+			border: 2px solid black;
+			margin-left: 13px;
+		}
+		div.desc{
+			text-align: center;
+		}
+		div.frame img{
+			width: 187px;
+			height: 100px;
+			padding: 5px;
+		}
+		div.frame:hover{
+			outline: 3px solid #777;
+
+		}
+
+		
+	</style>
+</head>
+<body>
+	    {% extends 'home.html' %}
+	{% block content %}
+		{% for p in images %}
+		<div class="frame">
+			<img src="{{ p.P_image.url }}">
+			<div class="desc">Namae:{{p.P_name}}</div>
+			<div class="desc">Price:{{p.P_price}}</div>
+			<div class="desc"><a href="/accounts/Send_mail_to_Buyer/{{p.P_name}}/">Buy Now</a></div>
+			
+		</div>
+		{% endfor %}
+		{% endblock content %}
+
+		
+	</div>
+
+		
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+
+	{% extends 'home.html' %}
+	{% block content %}
+	
+	<div style="text-align: center">
+	<h1>Registration for Ecommers web site</h1>
+	<form action="" method="POST" accept-charset="utf-8">
+		{% csrf_token %}
+		<input type="text" name="first_name" placeholder="first_name"><br>
+		<input type="text" name="last_name" placeholder="last_name"><br>
+		<input type="text" name="user_name" placeholder="user_name"><br>
+		<input type="email" name="email" placeholder="email_id"><br>
+		<input type="password" name="password1" placeholder="password"><br>
+		<input type="text" name="password2" placeholder="conform_password"><br><br>
+		<input type="submit">
+	</form>
+	<div>
+	{% for message in messages %}
+	{{ message }}
+	{% endfor %}
+    </div>
+	{% endblock content %}
+	</div>
+	
+

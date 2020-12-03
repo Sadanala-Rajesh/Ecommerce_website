@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial;
+  color: white;
+}
+
+.split {
+  height: 100%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.left {
+  left: 0;
+  /*background-color: #111;*/
+}
+
+.right {
+  right: 0;
+ /* background-color: red;*/
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.centered img {
+  width: 150px;
+  border-radius: 50%;
+}
+
+div.content2 {
+			position: fixed;
+			bottom: 0;
+			/*background: rgb(0, 0, 0); /* Fallback color */
+			/*background: rgba(0, 0, 0, 0.5);  /*Black background with 0.5 opacity*/
+			color: #f1f1f1;
+			width: 100%;
+			padding: 20px;
+			font-size: 100px;
+		}
+
+</style>
+
+		
+
+
+</head>
+<body>
+	{% extends 'home.html' %}
+	{% block content %}
+
+	<div class="abc">
+	<form action="" method="POST" accept-charset="utf-8">
+		{% csrf_token %}
+		<div class="split left">
+			<div class="centered">
+				{% for p in images %}
+				<div class="frame">
+					<img src="{{ p.P_image.url }}">
+					<div class="desc">Namae:{{p.P_name}}</div>
+					<div class="desc">Price:{{p.P_price}}</div>
+				</div>
+				{% endfor %}
+				<h3>Your ordering Product</h3>
+			</div>
+		</div>
+	    <div class="split right">
+	    	<div class="centered">
+	    		<h2>Deliver address location</h2>
+	    		<input type="number" name="Phone_Number" placeholder="Phone_Number">
+				<input type="text" name="Mail_id" placeholder="Mail_id">
+				<input type="text" name="Address" placeholder="Address"><br><br>
+	    		<input type="submit" name="">
+	    	</div>
+	    </div>
+
+	</form>
+</di>
+<div class="content2">
+
+		{% for message in messages %}
+		<p style="text-align: center"><b>{{ message }}</b></p>
+		{% endfor %}
+		</div>
+	{% endblock content %}
+
+</body>
+</html>

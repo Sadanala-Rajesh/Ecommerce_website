@@ -1,0 +1,94 @@
+{% load  static  %}
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+	body, html {
+			height: 100%;
+			margin: 0;
+			background-color: lightblue;
+		}
+	
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+#abc  {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  float:right;
+}
+
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #4CAF50;
+}
+
+div.content {
+
+			position: fixed;
+			bottom: 0;
+			color: yellow;
+			padding-left: 500px;
+			font-size: 25px;
+		}
+</style>
+</head>
+<body>
+	<div class="bg">
+		<ul>
+			<li><a  class="active" href="/">Home</a></li>
+			<li><a href="#news">News</a></li>
+			<li><a href="#contact">Contact</a></li>
+			{% if user.is_authenticated %}
+			<li  id='abc'>{{user.username}}</li>
+			<li style="float:right"><a  href="/accounts/logout/">LogOut</a></li>
+			<li style="float:right" ><a href="/accounts/display_user_cart_details/">Your_Cart_details</a></li>
+			<li style="float:right"><a  href="/accounts/display_products/">Main_page</a></li>
+			{% else %}
+			<li style="float:right"><a  href="/accounts/register/">Registration</a></li>
+			<li style="float:right"><a  href="/accounts/login">Login</a></li>
+			{% endif %}
+			
+		</ul>
+		<h1 style="text-align: center">Welcome to Ecommerce Website</h1>
+		
+
+		{% block content %}
+		{% endblock content %}
+	</div>
+	
+		
+	<div class="content">
+			
+			<p>Develope & maintained by Rajesh</p>
+		
+		
+	</div>
+
+
+</body>
+</html>

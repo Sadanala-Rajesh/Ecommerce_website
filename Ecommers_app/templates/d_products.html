@@ -1,0 +1,75 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style>
+		div.frame{
+			width: 200px;
+			height: 180px;
+			float: left;
+			margin:5px;
+			padding-bottom: 5px;
+			border: 2px solid black;
+			margin-left: 13px;
+		}
+		div.desc{
+			text-align: center;
+		}
+		div.frame img{
+			width: 187px;
+			height: 100px;
+			padding: 5px;
+		}
+		div.frame:hover{
+			outline: 3px solid #777;
+		}
+
+
+
+		div.content1 {
+			position: fixed;
+			bottom: 0;
+			/*background: rgb(0, 0, 0); /* Fallback color */
+			/*background: rgba(0, 0, 0, 0.5);  /*Black background with 0.5 opacity*/
+			color: #f1f1f1;
+			width: 100%;
+			padding: 20px;
+			font-size: 100px;
+		}
+
+		
+
+		
+	</style>
+</head>
+<body>
+	    {% extends 'home.html' %}
+	{% block content %}
+		{% for p in images %}
+		<div class="frame">
+			<img src="{{ p.P_image.url }}">
+			<div class="desc">Namae:{{p.P_name}}</div>
+			<div class="desc">Price:{{p.P_price}}</div>
+			<div class="desc"><a href="/accounts/Products_add_to_cart/{{p.P_name}}/">Add to cart</a></div>
+			<div class="desc"><a href="/accounts/Send_mail_to_Buyer/{{p.P_name}}/">Buy Product</a></div>
+			
+			
+		</div>
+		{% endfor %}
+		<div class="content1">
+
+		{% for message in messages %}
+		<p style="text-align: center"><b>{{ message }}</b></p>
+		{% endfor %}
+		</div>
+
+		{% endblock content %}
+
+		
+
+		
+
+</body>
+</html>

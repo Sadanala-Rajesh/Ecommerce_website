@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login_page</title>
+</head>
+<body>
+	{% extends 'home.html' %}
+	{% block content %}
+	
+	<div style="text-align: center">
+	<h1>Login for Ecommers web site</h1>
+	<form action="" method="POST" accept-charset="utf-8">
+		{% csrf_token %}
+		
+		<input type="text" name="user_name" placeholder="user_name"><br><br>
+		<input type="password" name="password1" placeholder="password"><br>
+		<input type="submit">
+	</form>
+	{% for message in messages %}
+	{{ message }}
+	{% endfor %}
+	{% endblock content %}
+
+</body>
+</html>
